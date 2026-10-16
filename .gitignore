@@ -1,0 +1,25 @@
+# Visual Studio
+.vs/
+*.user
+*.suo
+
+# .NET Build
+**/bin/
+**/obj/
+
+# Test Results
+**/TestResults/
+**/allure-results/
+**/allure-report/
+**/Screenshots/
+**/Logs/
+*.trx
+
+# Local environment and secrets
+.env
+.env.*
+**/appsettings.Local.json
+**/appsettings.*.secrets.json
+
+# Backup files
+**/LoginTests_Backup*.cs

@@ -1,0 +1,52 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net10.0</TargetFramework>
+        <LangVersion>latest</LangVersion>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <IsPackable>false</IsPackable>
+    </PropertyGroup>
+
+    <ItemGroup>
+    <PackageReference Include="Allure.NUnit" Version="2.15.0" />
+    <PackageReference Include="coverlet.collector" Version="10.1.0">
+        <PrivateAssets>all</PrivateAssets>
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="10.0.13" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.10.1" />
+    <PackageReference Include="NUnit" Version="5.0.0" />
+    <PackageReference Include="NUnit.Analyzers" Version="4.15.0">
+        <PrivateAssets>all</PrivateAssets>
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="NUnit3TestAdapter" Version="6.3.1" />
+    <PackageReference Include="RestSharp" Version="114.0.0" />
+    <PackageReference Include="Selenium.Support" Version="4.51.0" />
+    <PackageReference Include="Selenium.WebDriver" Version="4.51.0" />
+    <PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="155.0.8059.3900" />
+    <PackageReference Include="Serilog" Version="4.4.0" />
+    <PackageReference Include="Serilog.Sinks.File" Version="7.0.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Using Include="NUnit.Framework" />
+    </ItemGroup>
+
+    <ItemGroup>
+	    <None Update="Config\appsettings.json" CopyToOutputDirectory="PreserveNewest" />
+    </ItemGroup>
+
+	<ItemGroup>
+		<Compile Remove="Tests\UI\LoginTests_Backup*.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Update="allureConfig.json" CopyToOutputDirectory="PreserveNewest" />
+	</ItemGroup>
+
+	<Target Name="CleanAllureResults" BeforeTargets="VSTest">
+		<RemoveDir Directories="$(TargetDir)allure-results" Condition="Exists('$(TargetDir)allure-results')" />
+	</Target>
+</Project>

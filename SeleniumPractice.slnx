@@ -1,0 +1,6 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path="SeleniumPractice.runsettings" />
+  </Folder>
+  <Project Path="SeleniumPractice.Tests/SeleniumPractice.Tests.csproj" />
+</Solution>
